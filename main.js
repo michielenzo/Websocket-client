@@ -65,8 +65,6 @@ function messageThatWebsocketIsOpen(){
 	document.getElementById('messages').value += hours + ":" + minutes + "| Connection established\n";
 }
 
-function 
-
 function disableOpenConnectionButton(){
 	document.getElementById('connectbutton').disabled = true;
 }
