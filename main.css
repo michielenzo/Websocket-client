@@ -1,0 +1,29 @@
+#options{
+	display: inline;
+	float: left;
+	margin-right: 1%;
+}
+
+#sendinput{
+	display: block;	
+}
+
+#submitbutton{
+	display: block;
+}
+
+#inputdiv{
+	margin-top: 1%;
+}
+
+#textoptiondiv{
+	margin-bottom: 40%;
+}
+
+#connectbuttonsdiv{
+	display: inline;
+}
+
+#wsurlinputdiv{
+	display: inline;
+}

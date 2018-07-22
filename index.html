@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket Client</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src='main.js'></script>
+</head>
+<body>
+	<h1>Websocket Client ws://localhost:8080/player</h1>
+	<p id='introtext'>This client is build for sending and recieving messages to a server with a Websocket</p>
+	<div id='messagesdiv'>
+		<h2>Stream in/out</h2>
+		<textarea id='messages' cols='50' rows='10'></textarea>
+	</div>	
+	<div id='connectiondiv'>
+		<h2>Connect</h2>
+		<div id='wsurlinputdiv'>
+			<label for='wsurlinput'>URL:</label>
+			<input type='text' id='wsurlinput'>
+		</div>
+		<div id='connectbuttonsdiv'>
+			<input type='button' value='connect' id='connectbutton'>
+			<input type='button' value='disconnect' id='disconnectbutton'>
+		</div>
+	</div>
+	<div id='inputdiv'>
+		<h2>Send messages</h2>
+<!--	<div id='options'>	
+			<div id='textoptiondiv'>
+				<input type='radio' id='text' name='radio' checked='true'>
+				<label for='text'>text</label>
+			</div>
+			<div id='jsonoptiondiv'>
+				<input type='radio' id='json' name='radio'>
+				<label for='json'>json</label>
+			</div>
+		</div> -->
+		<div id='senddiv'>
+			<textarea id='sendinput' cols='50' rows='5'></textarea>
+			<input type='submit' id='sendbutton' name='send' value='send'>
+		</div>
+	</div>
+</body>
+</html>
+
