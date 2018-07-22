@@ -39,30 +39,35 @@ function addConnectEvents(){
 function addDisconnectEvents(){
 	disableCloseConnectionButton();
 	document.getElementById('disconnectbutton').addEventListener('click', function(){
+		webSocket.onbeforeunload = function(){
+			websocket.onclose = function () {}
+			websocket.close();
+		}
 		webSocket.close();
 		disableCloseConnectionButton();
 		enableOpenConnectionButton();
 		messageThatWebsocketIsClosed();
 		document.getElementById('sendbutton').disabled = true;
 	});
-	webSocket.onbeforeunload = function(){
-		websocket.onclose = function () {}
-		websocket.close();
-	}
+}
+
+function getCurrentTime(){
+	var datetime = new Date();
+	var hours = datetime.getHours();
+	var minutes = datetime.getMinutes();
+	return hours + ":" + minutes;
+}
+
+function messageThatWebsocketConnectionFailed(){
+	document.getElementById('messages').value += getCurrentTime() + "| Connection failed\n";
 }
 
 function messageThatWebsocketIsClosed(){
-	var datetime = new Date();
-	var hours = datetime.getHours();
-	var minutes = datetime.getMinutes();
-	document.getElementById('messages').value += hours + ":" + minutes + "| Connection closed\n";	
+	document.getElementById('messages').value += getCurrentTime() + "| Connection closed\n";	
 }
 
 function messageThatWebsocketIsOpen(){
-	var datetime = new Date();
-	var hours = datetime.getHours();
-	var minutes = datetime.getMinutes();
-	document.getElementById('messages').value += hours + ":" + minutes + "| Connection established\n";
+	document.getElementById('messages').value += getCurrentTime() + "| Connection established\n";
 }
 
 function disableOpenConnectionButton(){
