@@ -25,10 +25,6 @@ function addConnectEvents(){
 			enableCloseConnectionButton();
 			document.getElementById('sendbutton').disabled = false;
 		}
-		webSocket.onbeforeunload = function(){
-			websocket.onclose = function () {}
-			websocket.close();
-		}
 		webSocket.onmessage = function(evt){
 			var message = evt.data;
 			var datetime = new Date();
@@ -49,6 +45,10 @@ function addDisconnectEvents(){
 		messageThatWebsocketIsClosed();
 		document.getElementById('sendbutton').disabled = true;
 	});
+	webSocket.onbeforeunload = function(){
+		websocket.onclose = function () {}
+		websocket.close();
+	}
 }
 
 function messageThatWebsocketIsClosed(){
@@ -64,6 +64,8 @@ function messageThatWebsocketIsOpen(){
 	var minutes = datetime.getMinutes();
 	document.getElementById('messages').value += hours + ":" + minutes + "| Connection established\n";
 }
+
+function 
 
 function disableOpenConnectionButton(){
 	document.getElementById('connectbutton').disabled = true;
